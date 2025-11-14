@@ -1,0 +1,274 @@
+import re
+import pandas as pd
+
+# Paste your entire Syft text here
+text = """NAME                       VERSION                         TYPE                     
+Simple Launcher            1.1.0.14                        binary  (+5 duplicates)  
+adduser                    3.152                           deb                      
+annotated-types            0.7.0                           python                   
+anyio                      4.5.2                           python                   
+apt                        3.0.3                           deb                      
+apt-transport-https        3.0.3                           deb                      
+autocommand                2.2.2                           python                   
+azure-common               1.1.28                          python                   
+azure-communication-email  1.0.0                           python                   
+azure-core                 1.32.0                          python                   
+azure-identity             1.19.0                          python                   
+azure-mgmt-core            1.5.0                           python                   
+azure-mgmt-datafactory     9.1.0                           python                   
+azure-storage-blob         12.24.1                         python                   
+backports-tarfile          1.2.0                           python                   
+base-files                 13.8+deb13u1                    deb                      
+base-passwd                3.6.7                           deb                      
+bash                       5.2.37                          binary                   
+bash                       5.2.37-2+b5                     deb                      
+bash-completion            1:2.16.0-7                      deb                      
+bcrypt                     3.2.2                           python                   
+blinker                    1.9.0                           python                   
+bsdutils                   1:2.41-5                        deb                      
+ca-certificates            20250419                        deb                      
+cachelib                   0.13.0                          python                   
+certifi                    2025.1.31                       python                   
+cffi                       1.17.1                          python                   
+charset-normalizer         3.4.1                           python                   
+cli                        UNKNOWN                         binary                   
+cli-32                     UNKNOWN                         binary                   
+cli-64                     UNKNOWN                         binary                   
+cli-arm64                  UNKNOWN                         binary                   
+click                      8.1.8                           python                   
+colorama                   0.4.6                           python                   
+coreutils                  9.7-3                           deb                      
+coverage                   7.6.1                           python                   
+coverage-badge             1.1.2                           python                   
+cryptography               44.0.0                          python                   
+curl                       8.14.1                          binary                   
+curl                       8.14.1-2                        deb                      
+dash                       0.5.12-12                       deb                      
+debconf                    1.5.91                          deb                      
+debian-archive-keyring     2025.1                          deb                      
+debianutils                5.23.2                          deb                      
+diffutils                  1:3.10-4                        deb                      
+dirmngr                    2.4.7-21+b3                     deb                      
+dpkg                       1.22.21                         deb                      
+exceptiongroup             1.2.2                           python                   
+fastapi                    0.115.8                         python                   
+findutils                  4.10.0-3                        deb                      
+gcc-14                     14.2.0-19                       deb                      
+gcc-14-base                14.2.0-19                       deb                      
+gnupg                      2.4.7-21                        deb                      
+gnupg-l10n                 2.4.7-21                        deb                      
+gnupg-utils                2.4.7-21+b3                     deb                      
+gpg                        2.4.7-21+b3                     deb                      
+gpg-agent                  2.4.7-21+b3                     deb                      
+gpg-wks-client             2.4.7-21+b3                     deb                      
+gpgconf                    2.4.7-21+b3                     deb                      
+gpgsm                      2.4.7-21+b3                     deb                      
+gpgv                       2.4.7-21+b3                     deb                      
+greenlet                   3.1.1                           python                   
+grep                       3.11-4                          deb                      
+gui                        UNKNOWN                         binary                   
+gui-32                     UNKNOWN                         binary                   
+gui-64                     UNKNOWN                         binary                   
+gui-arm64                  UNKNOWN                         binary                   
+gzip                       1.13                            binary                   
+gzip                       1.13-1                          deb                      
+h11                        0.14.0                          python                   
+hostname                   3.25                            deb                      
+httpcore                   1.0.7                           python                   
+httpx                      0.28.1                          python                   
+idna                       3.10                            python                   
+importlib-metadata         8.0.0                           python                   
+inflect                    7.3.1                           python                   
+iniconfig                  2.1.0                           python                   
+init-system-helpers        1.69~deb13u1                    deb                      
+isodate                    0.7.2                           python                   
+jaraco-collections         5.1.0                           python                   
+jaraco-context             5.3.0                           python                   
+jaraco-functools           4.0.1                           python                   
+jaraco-text                3.12.1                          python                   
+jinja2                     3.1.6                           python                   
+krb5-locales               1.21.3-5                        deb                      
+libacl1                    2.3.2-2+b1                      deb                      
+libapt-pkg7.0              3.0.3                           deb                      
+libassuan9                 3.0.2-2                         deb                      
+libattr1                   1:2.5.2-3                       deb                      
+libaudit-common            1:4.0.2-2                       deb                      
+libaudit1                  1:4.0.2-2+b2                    deb                      
+libblkid1                  2.41-5                          deb                      
+libbrotli1                 1.1.0-2+b7                      deb                      
+libbsd0                    0.12.2-2                        deb                      
+libbz2-1.0                 1.0.8-6                         deb                      
+libc-bin                   2.41-12                         deb                      
+libc6                      2.41-12                         deb                      
+libcap-ng0                 0.8.5-4+b1                      deb                      
+libcap2                    1:2.75-10+b1                    deb                      
+libcom-err2                1.47.2-3+b3                     deb                      
+libcrypt1                  1:4.4.38-1                      deb                      
+libcurl4t64                8.14.1-2                        deb                      
+libdb5.3t64                5.3.28+dfsg2-9                  deb                      
+libdebconfclient0          0.280                           deb                      
+libffi8                    3.4.8-2                         deb                      
+libgcc-s1                  14.2.0-19                       deb                      
+libgcrypt20                1.11.0-7                        deb                      
+libgdbm6t64                1.24-2                          deb                      
+libgmp10                   2:6.3.0+dfsg-3                  deb                      
+libgnutls30t64             3.8.9-3                         deb                      
+libgpg-error-l10n          1.51-4                          deb                      
+libgpg-error0              1.51-4                          deb                      
+libgssapi-krb5-2           1.21.3-5                        deb                      
+libhogweed6t64             3.10.1-1                        deb                      
+libidn2-0                  2.3.8-2                         deb                      
+libk5crypto3               1.21.3-5                        deb                      
+libkeyutils1               1.6.3-6                         deb                      
+libkrb5-3                  1.21.3-5                        deb                      
+libkrb5support0            1.21.3-5                        deb                      
+libksba8                   1.6.7-2+b1                      deb                      
+liblastlog2-2              2.41-5                          deb                      
+libldap-common             2.6.10+dfsg-1                   deb                      
+libldap2                   2.6.10+dfsg-1                   deb                      
+libltdl7                   2.5.4-4                         deb                      
+liblz4-1                   1.10.0-4                        deb                      
+liblzma5                   5.8.1-1                         deb                      
+libmd0                     1.1.0-2+b1                      deb                      
+libmount1                  2.41-5                          deb                      
+libncursesw6               6.5+20250216-2                  deb                      
+libnettle8t64              3.10.1-1                        deb                      
+libnghttp2-14              1.64.0-1.1                      deb                      
+libnghttp3-9               1.8.0-1                         deb                      
+libnpth0t64                1.8-3                           deb                      
+libodbc2                   2.3.12-2                        deb                      
+libodbccr2                 2.3.12-2                        deb                      
+libodbcinst2               2.3.12-2                        deb                      
+libp11-kit0                0.25.5-3                        deb                      
+libpam-modules             1.7.0-5                         deb                      
+libpam-modules-bin         1.7.0-5                         deb                      
+libpam-runtime             1.7.0-5                         deb                      
+libpam0g                   1.7.0-5                         deb                      
+libpcre2-8-0               10.46-1~deb13u1                 deb                      
+libpsl5t64                 0.21.2-1.1+b1                   deb                      
+libreadline8t64            8.2-6                           deb                      
+librtmp1                   2.4+20151223.gitfa8646d.1-2+b5  deb                      
+libsasl2-2                 2.1.28+dfsg1-9                  deb                      
+libsasl2-modules           2.1.28+dfsg1-9                  deb                      
+libsasl2-modules-db        2.1.28+dfsg1-9                  deb                      
+libseccomp2                2.6.0-2                         deb                      
+libselinux1                3.8.1-1                         deb                      
+libsemanage-common         3.8.1-1                         deb                      
+libsemanage2               3.8.1-1                         deb                      
+libsepol2                  3.8.1-1                         deb                      
+libsmartcols1              2.41-5                          deb                      
+libsqlite3-0               3.46.1-7                        deb                      
+libssh2-1t64               1.11.1-1                        deb                      
+libssl3t64                 3.5.1-1+deb13u1                 deb                      
+libstdc++6                 14.2.0-19                       deb                      
+libsystemd0                257.8-1~deb13u2                 deb                      
+libtasn1-6                 4.20.0-2                        deb                      
+libtinfo6                  6.5+20250216-2                  deb                      
+libudev1                   257.8-1~deb13u2                 deb                      
+libunistring5              1.3-2                           deb                      
+libuuid1                   2.41-5                          deb                      
+libxxhash0                 0.8.3-2                         deb                      
+libzstd                    1.5.7+dfsg-1                    deb                      
+libzstd1                   1.5.7+dfsg-1                    deb                      
+login                      1:4.16.0-2+really2.41-5         deb                      
+login.defs                 1:4.17.4-2                      deb                      
+lxml                       6.0.0                           python                   
+markupsafe                 3.0.2                           python                   
+mawk                       1.3.4.20250131-1                deb                      
+more-itertools             10.3.0                          python                   
+mount                      2.41-5                          deb                      
+msal                       1.31.1                          python                   
+msal-extensions            1.2.0                           python                   
+msodbcsql17                17.10.6.1-1                     deb                      
+msrest                     0.7.1                           python                   
+my-test-package            1.0                             python                   
+ncurses-base               6.5+20250216-2                  deb                      
+ncurses-bin                6.5+20250216-2                  deb                      
+netbase                    6.5                             deb                      
+oauthlib                   3.2.2                           python                   
+odbcinst                   2.3.12-2                        deb                      
+openssl                    3.5.1                           binary                   
+openssl                    3.5.1-1+deb13u1                 deb                      
+openssl-provider-legacy    3.5.1-1+deb13u1                 deb                      
+packaging                  24.2                            python                   
+packaging                  25.0                            python                   
+passlib                    1.7.4                           python                   
+passwd                     1:4.17.4-2                      deb                      
+perl-base                  5.40.1-6                        deb                      
+pinentry-curses            1.3.1-2                         deb                      
+pip                        25.2                            python                   
+platformdirs               4.2.2                           python                   
+pluggy                     1.6.0                           python                   
+portalocker                2.10.1                          python                   
+publicsuffix               20250328.1952-0.1               deb                      
+pycparser                  2.22                            python                   
+pydantic                   2.10.6                          python                   
+pydantic-core              2.27.2                          python                   
+pydantic-settings          2.11.0                          python                   
+pygments                   2.19.2                          python                   
+pyjwt                      2.9.0                           python                   
+pymssql                    2.3.0                           python                   
+pyodbc                     5.2.0                           python                   
+pytest                     8.4.0                           python                   
+python                     3.12.12                         binary                   
+python-dateutil            2.9.0.post0                     python                   
+python-dotenv              1.0.1                           python                   
+python-multipart           0.0.20                          python                   
+readline-common            8.2-6                           deb                      
+redis                      6.2.0                           python                   
+requests                   2.32.3                          python                   
+requests-oauthlib          2.0.0                           python                   
+sed                        4.9-2                           deb                      
+setuptools                 80.9.0                          python                   
+shadow                     1:4.17.4-2                      deb                      
+six                        1.17.0                          python                   
+sniffio                    1.3.1                           python                   
+sqlalchemy                 2.0.29                          python                   
+sqv                        1.3.0-3                         deb                      
+starlette                  0.44.0                          python                   
+systemd                    257.8-1~deb13u2                 deb                      
+sysvinit-utils             3.14-4                          deb                      
+tar                        1.35+dfsg-3.1                   deb                      
+tomli                      2.0.1                           python                   
+typeguard                  4.3.0                           python                   
+typing-extensions          4.12.2                          python  (+1 duplicate)   
+typing-inspection          0.4.2                           python                   
+tzdata                     2025b-4+deb13u1                 deb                      
+unixodbc                   2.3.12-2                        deb                      
+unixodbc-common            2.3.12-2                        deb                      
+urllib3                    2.2.3                           python                   
+util-linux                 2.41-5                          deb     (+1 duplicate)   
+uvicorn                    0.29.0                          python                   
+watchfiles                 0.24.0                          python                   
+websockets                 13.1                            python                   
+werkzeug                   3.1.3                           python                   
+wheel                      0.45.1                          python                   
+zipp                       3.19.2                          python                   
+zlib1g                     1:1.3.dfsg+really1.3.1-1+b1     deb
+"""
+
+# Split into lines and ignore header
+lines = [l.strip() for l in text.splitlines() if l.strip()]
+data = []
+
+# Skip header row
+for line in lines[1:]:
+    # Split by 2 or more spaces
+    parts = re.split(r'\s{2,}', line)
+    if len(parts) >= 3:
+        name, version, type_ = parts[0], parts[1], parts[2]
+    elif len(parts) == 2:
+        name, version, type_ = parts[0], parts[1], ""
+    else:
+        continue
+    data.append([name, version, type_])
+
+# Create DataFrame
+df = pd.DataFrame(data, columns=["NAME", "VERSION", "TYPE"])
+
+# Show first few rows
+print(df.head(10))
+
+# Save to CSV
+df.to_csv("syft_packages.csv", index=False)
+print("\n✅ Saved as syft_packages.csv")

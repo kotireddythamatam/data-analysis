@@ -1,0 +1,254 @@
+
+Always data speaks with each person or organization differently.
+
+Ex: We have last 10 years rain data in Praksam distict with location, time, date, rain centimeters, mandal, village, affect, people effected, homes destroyed, etc
+
+If you are rural and urban town planning engineer, you need 
+	1. How many homes collapsed?
+	2. Is there any drinage problem occured?
+	3. Is water stayin in village itself?
+
+If you are appolo hospital owner
+	1. How many people affected due to home collapse?
+	2. How many people affected due to weather changes like fever, cold etc?
+	3. Do we have bones specialist and corresponding medicines?
+	4. Do we have seasonal fever specialist and corresponding madicines?
+
+
+
+
+
+Statistics:
+----------
+Statistics is a mathematical science of collecting, cleaning, exploring, analysing and interpretation of data.
+Data should be measured. We are using statics on data to make better decisions.
+
+
+Types of Analysis:
+------------------
+Based on source of data we classified analysis into two types.
+
+Statistical Analysis or Quantitative Analysis:
+---------------------------------------------
+Collecting, Cleaning, exploring insights from large amount of data to identify patterns and trends.
+
+
+Non Statistical Analysis or Qualitative Analysis:
+--------------------------------------------------
+It provides genereic information means text, images, audio and video data to identyfy patterns and trends.
+
+
+Data analysis involves:
+----------------------
+Data analysis covers following
+
+Data Collection:
+---------------
+Every analysis starts with data collection. Collecting data from different sources like databases, apis, files and internet etc
+
+Data Cleaning:
+--------------
+Once we have data, need to clean. It involves reshaping, changing data types, handling missing values and removing outliers etc
+
+Data Exploration:
+----------------
+Drawing visual graphs using matplotlib, seaborn etc. To understand underlaying patterns, relationships, trends within the data
+
+Drawing Conclusions:
+--------------------
+Based on visuals drawing conclusions.
+
+
+Analysis vs Analytics:
+---------------------
+Analysis and analytics both looks same but they are different. Analysis will focus on past data and analytics will focus on future data.
+
+Analytics is a scientific process of transforming data into insights for better decision making.
+
+
+Types of Statistics:
+--------------------
+
+Descriptive Statistics:
+----------------------
+Describe main characteristics and summary of data.
+
+Inferential Statistics:
+----------------------
+Making predictions about a population using sample data.
+
+
+Classification of data analytics:
+---------------------------------
+1. Descriptive Analytics (What happened?)
+2. Diagnostic Analytics (Why did it happended?)
+3. Predective Analytics (What will happen?)
+4. Prescriptive Analytics (How can we make it happen?)
+
+
+types of variables:
+------------------
+1. Categorical
+2. Numerical
+
+Categorical varibles:
+--------------------
+Varabiles which can be grouped based on it's category
+ex: gender, marriage status, colors etc
+
+Numerical variables:
+--------------------
+1. Descrete
+2. Continuous
+
+Descrete Variables:
+-------------------
+Discrete variable one in which no value can be assumed between two given values. Variables which can be counted as integers.
+ex: no.of childrens, no.of bugs etc.
+
+Continuous Variables:
+---------------------
+Continuous variable on in which any value can be assumed between tow given values. Variables which can be counted as float numbers.
+ex: weight, time etc.
+
+
+Levels of data measurement:
+---------------------------
+1. Nominal
+2. Ordinal
+3. Interval
+4. Ratio
+
+Nominal Data:
+-------------
+Nominal data which can be distinct categories and no ranking implied. No arithematic operation.
+ex: gender, marriage status, colors etc.
+
+Ordinal Data:
+------------
+Ordinal data which can be distinct categories and ranking implied. No arithematic operation.
+ex: customer satisfaction(good, average, poor, verypoor), Student grades etc
+
+Interval Data:
+-------------
+Interval Data where difference between measurements is meaningfull quanity but don't have true zero point. Addition and substraction can be done
+ex: temperature(at 0 temperature also some heat will be there)
+
+Ratio Data:
+----------
+Ratio data where difference between measurements is meaningfull quantity and have true zero point. All arithematic operations can be done.
+Ex: age, weight 
+
+
+Population:
+-----------
+Population is the group from which data is to be collected.
+
+
+Sample:
+-------
+Sample is a subset of population.
+
+
+Variable:
+--------
+Variable is a characteristic value of any member of population.
+ex: age, gender, color of skin, designation etc.
+
+
+Quantitative Variable:
+----------------------
+A variable differing in quantity is called quantitative variable.
+ex: weight of person, no of people in bus
+
+
+Qualitative Variable:
+---------------------
+A variable differeing in quality called qualitative variable.
+ex: color and degree of damage to a car in an accident.
+
+
+Measures of Frequency:
+----------------------
+The number of occurances of any particular data value in the given data set.
+
+
+Simple Random Sampling:
+----------------------
+It is a common practise in sample collection. There is no logic or priority to choose sample data.
+This technique used when entie population has equal chance of getting selected.
+
+
+Stratified Sampling:
+--------------------
+Divide population into sub groups based some characteristics. It should be non overlapping groups.
+ex: gender based, age group based
+
+
+Systematic Sampling:
+-------------------
+There should be logic for selecting sample.
+ex: every 5th person in a class is my sample data.
+
+
+Convinence Sampling:
+--------------------
+This is a type of sampling with biased
+
+
+
+Measure of Central Tendancy:
+---------------------------
+The data values are present in middle of distribution or towards end.
+
+Mean:
+-----
+Average of all value of the data
+Ex: 2, 3, 6, 9, 1, 6
+mean = (2 + 3 + 6 + 9 + 1 + 6) / 2
+
+
+Median:
+-------
+Middle number of data after making sorted. If length is even then average of middle two numbers.
+Ex: 1, 2, 3, 6, 6, 9
+median = (3 + 6) / 2
+
+
+Mode:
+-----
+Most frequently occuring value in the dataset
+Ex: 2, 3, 6, 9, 1, 6
+mode = 6
+
+
+Measures of Dispersion:
+----------------------
+Range:
+------
+Difference between largest and smallest value after making ascending oreder.
+Ex: 1, 2, 3, 6, 6, 9
+range = 9 - 1 = 8
+
+
+Variance:
+---------
+The average of squared difference between mean. If we are finding variance of sample then n-1.
+Variance is a measure that indicates how much data spread around the mean.
+Ex: 2, 3, 6, 9, 1, 6
+mean = (2 + 3 + 6 + 9 + 1 + 6) / 2
+variance = (x-mean)**2 / n
+
+
+Standard Deviation:
+-------------------
+The square root of variance
+standard deviation = sqrt of variance 
+
+
+
+
+
+
+
+
